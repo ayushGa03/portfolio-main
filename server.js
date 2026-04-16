@@ -17,4 +17,4 @@ app.use("/api" , emailRouter)
 
 app.listen(port,()=>{
     console.log(`Server is listening to the port ${port}`)
-});
+})
