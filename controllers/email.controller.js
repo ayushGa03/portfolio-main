@@ -13,9 +13,13 @@ async function controll (req,res){
       },
     });
 
+    // Verify transporter connection
+    await transporter.verify();
+
     await transporter.sendMail({
-      from: email,
+      from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER,
+      replyTo: email,
       subject: `New Project: ${title}`,
       html: `
         <h3>New Contact Request</h3>
@@ -25,7 +29,7 @@ async function controll (req,res){
         <p><b>Message:</b> ${message}</p>
       `,
     });
-
+    
     res.status(200).json({ success: true, message: "Email sent" });
 
   } catch (error) {

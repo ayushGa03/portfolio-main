@@ -11,10 +11,10 @@ app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 const port = 3030;
-app.use("/api" , emailRouter)
+app.use("/api" , emailRouter);
 
 
 
 app.listen(port,()=>{
-    console.log(`Server is listening to the port ${port}`)
+    console.log(`Server is listening to the port ${port}`);
 })
